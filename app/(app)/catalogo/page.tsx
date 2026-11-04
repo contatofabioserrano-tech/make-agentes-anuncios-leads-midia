@@ -2,16 +2,17 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { requireCompany, byCompany } from "@/lib/company";
+import { usesOdoo } from "@/lib/features";
 import { PageHeader } from "@/components/PageHeader";
 import { brl, fmtDate, type CatalogProduct } from "@/lib/marketplace/catalog";
 
-export const metadata = { title: "Catálogo — Fortuna" };
+export const metadata = { title: "Catálogo — MakeOne" };
 export const dynamic = "force-dynamic";
 
 const PAGE = 40;
 
 function Completeness({ v }: { v: number }) {
-  const color = v >= 90 ? "bg-emerald-600" : v >= 70 ? "bg-ink" : v >= 50 ? "bg-[#9A9A90]" : "bg-kairos-red";
+  const color = v >= 90 ? "bg-emerald-600" : v >= 70 ? "bg-ink" : v >= 50 ? "bg-[#9A9A90]" : "bg-accent";
   return (
     <div className="flex items-center gap-2">
       <div className="bar w-20"><div className={`h-full rounded-full ${color}`} style={{ width: `${v}%` }} /></div>
@@ -30,7 +31,7 @@ export default async function CatalogoPage({ searchParams }: { searchParams: Rec
 
   const supabase = createClient();
   const company = await requireCompany();
-  if (company.kind !== "odoo") redirect("/cadastro");
+  if (!usesOdoo(company)) redirect("/fontes");
   let query = supabase
     .from("mk_catalog_products")
     .select("odoo_id,sku,name_pt,brand,category,status,price_usd,price_brl,has_image,completeness,missing,synced_at", { count: "exact" })
@@ -60,7 +61,7 @@ export default async function CatalogoPage({ searchParams }: { searchParams: Rec
 
   return (
     <div className="mx-auto max-w-[1400px] space-y-6 px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
-      <PageHeader overline="Odoo Kairós · espelho do cadastro" title="Catálogo"
+      <PageHeader overline="Odoo · espelho do cadastro" title="Catálogo"
         subtitle={`${count ?? 0} produtos${lastSync ? ` · sincronizado em ${fmtDate(lastSync)}` : ""}. Clique num produto para ver o cadastro completo e gerar anúncios.`} />
 
       <form className="card grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr_auto]" method="get">
@@ -106,10 +107,10 @@ export default async function CatalogoPage({ searchParams }: { searchParams: Rec
                 </td>
                 <td className="px-3 text-muted-fg">{p.brand ?? "—"}</td>
                 <td className="px-3 tabular-nums">{brl(p.price_brl)}</td>
-                <td className="px-3">{p.has_image ? "✓" : <span className="text-kairos-red">✕</span>}</td>
+                <td className="px-3">{p.has_image ? "✓" : <span className="text-accent">✕</span>}</td>
                 <td className="px-3"><Completeness v={p.completeness} /></td>
                 <td className="max-w-[260px] px-3 text-[12px] text-muted-fg">{(p.missing ?? []).slice(0, 3).join(" · ")}{p.missing.length > 3 ? ` +${p.missing.length - 3}` : ""}</td>
-                <td className="px-4 text-right"><Link href={`/catalogo/${p.odoo_id}`} className="font-mono text-[11px] uppercase tracking-[0.1em] hover:text-kairos-red">Abrir ↗</Link></td>
+                <td className="px-4 text-right"><Link href={`/catalogo/${p.odoo_id}`} className="font-mono text-[11px] uppercase tracking-[0.1em] hover:text-accent">Abrir ↗</Link></td>
               </tr>
             ))}
           </tbody>

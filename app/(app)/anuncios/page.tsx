@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { createClient } from "@/lib/supabase/server";
 import { requireCompany, byCompany, isLegacy } from "@/lib/company";
+import { usesOdoo } from "@/lib/features";
 import { LISTINGS, evaluate, resolveListing, type ListingBundle } from "@/lib/marketplace/listings";
 
 export const metadata = { title: "Anúncios" };
@@ -22,7 +23,7 @@ export default async function AnunciosPage() {
     <div className="mx-auto max-w-[1400px] space-y-6 px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
       <PageHeader overline="Marketplaces · prontos para publicar" title="Anúncios"
         subtitle="Anúncios validados automaticamente contra a política de cada marketplace — os do repositório e os gerados pelo agente.">
-        <Link href="/catalogo" className="btn-primary">Gerar novo ↗</Link>
+        <Link href={usesOdoo(company) ? "/catalogo" : "/fontes"} className="btn-primary">Gerar novo ↗</Link>
       </PageHeader>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {all.map(({ slug, b }) => {
@@ -36,12 +37,12 @@ export default async function AnunciosPage() {
                   <img src={`${b.baseUrl}/${main.file}`} alt={main.alt} className="h-full w-full object-contain p-6" />
                 )}
                 <span className="absolute left-3 top-3 rounded-full bg-ink px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-white">TikTok Shop</span>
-                {slug.startsWith("job-") && <span className="absolute right-3 top-3 rounded-full bg-kairos-red px-2.5 py-1 font-mono text-[10px] uppercase text-white">Agente</span>}
+                {slug.startsWith("job-") && <span className="absolute right-3 top-3 rounded-full bg-accent px-2.5 py-1 font-mono text-[10px] uppercase text-white">Agente</span>}
               </div>
               <div className="space-y-2 border-t border-line p-4">
                 <h3 className="line-clamp-2 text-sm font-medium text-ink">{b.listing.title}</h3>
                 <div className="flex flex-wrap gap-1.5 font-mono text-[10px] uppercase">
-                  <span className={`rounded-full px-2 py-0.5 ${summary.conteudoPronto ? "bg-emerald-100 text-emerald-800" : "bg-kairos-red-soft text-kairos-red"}`}>
+                  <span className={`rounded-full px-2 py-0.5 ${summary.conteudoPronto ? "bg-emerald-100 text-emerald-800" : "bg-accent-soft text-accent"}`}>
                     {summary.conteudoPronto ? "Política ok" : `${summary.erros} erros`}
                   </span>
                   <span className="rounded-full bg-[#EDEDE7] px-2 py-0.5 text-muted-fg">{summary.passed}/{summary.total}</span>

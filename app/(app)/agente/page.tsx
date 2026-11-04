@@ -1,24 +1,28 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { requireCompany, byCompany } from "@/lib/company";
+import { usesOdoo } from "@/lib/features";
 import { PageHeader } from "@/components/PageHeader";
 import { fmtDate, MARKETPLACES, type AdJob } from "@/lib/marketplace/catalog";
 import { AutoRefresh } from "./AutoRefresh";
 
-export const metadata = { title: "Agente de anúncios — Fortuna" };
+export const metadata = { title: "Agente de anúncios — MakeOne" };
 export const dynamic = "force-dynamic";
 
 const STATUS: Record<AdJob["status"], { label: string; cls: string }> = {
   queued: { label: "Na fila", cls: "bg-[#EDEDE7] text-ink" },
   running: { label: "Gerando", cls: "bg-amber-100 text-amber-800" },
   done: { label: "Pronto", cls: "bg-emerald-100 text-emerald-800" },
-  error: { label: "Erro", cls: "bg-kairos-red-soft text-kairos-red" },
+  error: { label: "Erro", cls: "bg-accent-soft text-accent" },
   canceled: { label: "Cancelado", cls: "bg-[#EDEDE7] text-muted-fg" },
 };
 
 export default async function AgentePage() {
   const supabase = createClient();
-  const { data } = await supabase.from("mk_ad_jobs").select("*").match(byCompany((await requireCompany()).id)).order("created_at", { ascending: false }).limit(50);
+  const company = await requireCompany();
+  const isOdoo = usesOdoo(company);
+  const pickHref = isOdoo ? "/catalogo" : "/cadastro";
+  const { data } = await supabase.from("mk_ad_jobs").select("*").match(byCompany(company.id)).order("created_at", { ascending: false }).limit(50);
   const jobs = (data ?? []) as AdJob[];
   const ids = Array.from(new Set(jobs.map((j) => j.odoo_id)));
   const { data: prods } = ids.length
@@ -31,14 +35,14 @@ export default async function AgentePage() {
   return (
     <div className="mx-auto max-w-[1400px] space-y-6 px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
       <PageHeader overline="IA · do cadastro ao pacote pronto" title="Agente de anúncios"
-        subtitle="Escolha um produto no catálogo e acione o agente. Ele lê o Odoo, monta fotos no padrão, cenas de uso, textos, dúvidas, vídeo, valida a política de cada marketplace e entrega o pacote.">
+        subtitle={`Escolha um produto ${isOdoo ? "no catálogo" : "cadastrado"} e acione o agente. Ele lê ${isOdoo ? "o Odoo" : "os materiais enviados"}, monta fotos no padrão, cenas de uso, textos, dúvidas, vídeo, valida a política de cada marketplace e entrega o pacote.`}>
         <AutoRefresh active={live} />
-        <Link href="/catalogo" className="btn-primary">Escolher produto ↗</Link>
+        <Link href={pickHref} className="btn-primary">Escolher produto ↗</Link>
       </PageHeader>
 
       <ol className="grid gap-3 sm:grid-cols-3">
         {[
-          ["01", "Você escolhe o produto", "No catálogo do Odoo, com os marketplaces de destino."],
+          ["01", "Você escolhe o produto", isOdoo ? "No catálogo do Odoo, com os marketplaces de destino." : "Entre os cadastros montados dos seus materiais, com os marketplaces de destino."],
           ["02", "O agente produz", "Fotos, cenas, textos, dúvidas e vídeo, checando cada regra."],
           ["03", "Você revisa e publica", "Pacote pronto: imagens, vídeo, JSON/CSV para o Seller Center."],
         ].map(([n, t, s]) => (
@@ -74,7 +78,7 @@ export default async function AgentePage() {
           })}
           {jobs.length === 0 && (
             <li className="px-5 py-10 text-center text-sm text-muted-fg">
-              Nenhum trabalho ainda. <Link href="/catalogo" className="underline">Escolha um produto no catálogo</Link> e clique em “Acionar agente”.
+              Nenhum trabalho ainda. <Link href={pickHref} className="underline">Escolha um produto</Link> e clique em “Acionar agente”.
             </li>
           )}
         </ul>

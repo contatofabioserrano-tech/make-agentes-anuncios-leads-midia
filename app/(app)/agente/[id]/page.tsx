@@ -15,7 +15,7 @@ const DOT: Record<AdJobStep["status"], string> = {
   running: "border-amber-500 bg-amber-400 animate-pulse",
   done: "border-ink bg-ink",
   skipped: "border-line bg-[#E6E6E0]",
-  error: "border-kairos-red bg-kairos-red",
+  error: "border-accent bg-accent",
 };
 const LABEL: Record<AdJobStep["status"], string> = {
   pending: "aguardando", running: "em andamento", done: "feito", skipped: "pulado", error: "erro",
@@ -76,7 +76,7 @@ export default async function JobPage({ params }: { params: { id: string } }) {
                   <div className="flex flex-wrap items-baseline gap-x-2">
                     <span className="font-mono text-[11px] text-muted-fg">{String(i + 1).padStart(2, "0")}</span>
                     <span className="text-sm font-medium text-ink">{s.label}</span>
-                    <span className={`font-mono text-[10px] uppercase ${s.status === "error" ? "text-kairos-red" : "text-muted-fg"}`}>{LABEL[s.status]}</span>
+                    <span className={`font-mono text-[10px] uppercase ${s.status === "error" ? "text-accent" : "text-muted-fg"}`}>{LABEL[s.status]}</span>
                   </div>
                   {s.detail && <p className="mt-1 whitespace-pre-line text-xs text-muted-fg">{s.detail}</p>}
                 </div>
@@ -92,7 +92,7 @@ export default async function JobPage({ params }: { params: { id: string } }) {
 
         <aside className="space-y-4">
           {ev && (
-            <section className={`rounded-2xl p-5 ${ev.summary.conteudoPronto ? "bg-ink text-white" : "bg-kairos-red text-white"}`}>
+            <section className={`rounded-2xl p-5 ${ev.summary.conteudoPronto ? "bg-ink text-white" : "bg-accent text-white"}`}>
               <p className="font-mono text-[11px] uppercase tracking-[0.12em] opacity-70">Política TikTok Shop</p>
               <p className="display mt-1 text-[28px] !text-white">{ev.summary.conteudoPronto ? "Aprovado" : "Reprovado"}</p>
               <p className="text-xs opacity-80">{ev.summary.passed}/{ev.summary.total} verificações · {ev.summary.pendencias} pendências do vendedor</p>
@@ -113,7 +113,7 @@ export default async function JobPage({ params }: { params: { id: string } }) {
           {result.resumo && <section className="card p-5 text-sm"><p className="eyebrow mb-2">Resumo</p><p className="whitespace-pre-line">{result.resumo}</p></section>}
           {result.avisos && result.avisos.length > 0 && (
             <section className="card p-5"><p className="eyebrow mb-2">Avisos do agente</p>
-              <ul className="space-y-1 text-xs">{result.avisos.map((a) => <li key={a} className="flex gap-2"><span className="text-kairos-red">●</span>{a}</li>)}</ul>
+              <ul className="space-y-1 text-xs">{result.avisos.map((a) => <li key={a} className="flex gap-2"><span className="text-accent">●</span>{a}</li>)}</ul>
             </section>
           )}
           {result.custo && (
