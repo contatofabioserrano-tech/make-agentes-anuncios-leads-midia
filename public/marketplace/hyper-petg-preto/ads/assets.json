@@ -1,0 +1,149 @@
+{
+ "principal_1x1.jpg": {
+  "width": 1080,
+  "height": 1080,
+  "bytes": 148891,
+  "modo": "recorte",
+  "origem": "01_principal.jpg"
+ },
+ "principal_4x5.jpg": {
+  "width": 1080,
+  "height": 1350,
+  "bytes": 221472,
+  "modo": "recorte",
+  "origem": "01_principal.jpg"
+ },
+ "principal_9x16.jpg": {
+  "width": 1080,
+  "height": 1920,
+  "bytes": 138682,
+  "modo": "encaixe",
+  "origem": "01_principal.jpg"
+ },
+ "principal_191x1.jpg": {
+  "width": 1200,
+  "height": 628,
+  "bytes": 51288,
+  "modo": "encaixe",
+  "origem": "01_principal.jpg"
+ },
+ "uso_1x1.jpg": {
+  "width": 1080,
+  "height": 1080,
+  "bytes": 225635,
+  "modo": "recorte",
+  "origem": "02_uso_impressora.jpg"
+ },
+ "uso_4x5.jpg": {
+  "width": 1080,
+  "height": 1350,
+  "bytes": 267503,
+  "modo": "recorte",
+  "origem": "02_uso_impressora.jpg"
+ },
+ "uso_9x16.jpg": {
+  "width": 1080,
+  "height": 1920,
+  "bytes": 251631,
+  "modo": "encaixe",
+  "origem": "02_uso_impressora.jpg"
+ },
+ "uso_191x1.jpg": {
+  "width": 1200,
+  "height": 628,
+  "bytes": 106483,
+  "modo": "encaixe",
+  "origem": "02_uso_impressora.jpg"
+ },
+ "pecas_1x1.jpg": {
+  "width": 1080,
+  "height": 1080,
+  "bytes": 199217,
+  "modo": "recorte",
+  "origem": "03_pecas_funcionais.jpg"
+ },
+ "pecas_4x5.jpg": {
+  "width": 1080,
+  "height": 1350,
+  "bytes": 263137,
+  "modo": "recorte",
+  "origem": "03_pecas_funcionais.jpg"
+ },
+ "pecas_9x16.jpg": {
+  "width": 1080,
+  "height": 1920,
+  "bytes": 223889,
+  "modo": "encaixe",
+  "origem": "03_pecas_funcionais.jpg"
+ },
+ "pecas_191x1.jpg": {
+  "width": 1200,
+  "height": 628,
+  "bytes": 86509,
+  "modo": "encaixe",
+  "origem": "03_pecas_funcionais.jpg"
+ },
+ "ugc_maker_1x1.jpg": {
+  "width": 1080,
+  "height": 1080,
+  "bytes": 267551,
+  "modo": "recorte",
+  "origem": "ugc/u1_maker_segurando.jpg"
+ },
+ "ugc_maker_4x5.jpg": {
+  "width": 1080,
+  "height": 1350,
+  "bytes": 214229,
+  "modo": "recorte",
+  "origem": "ugc/u1_maker_segurando.jpg"
+ },
+ "ugc_maker_9x16.jpg": {
+  "width": 1080,
+  "height": 1920,
+  "bytes": 404689,
+  "modo": "recorte",
+  "origem": "ugc/u1_maker_segurando.jpg"
+ },
+ "ugc_maker_191x1.jpg": {
+  "width": 1200,
+  "height": 628,
+  "bytes": 116909,
+  "modo": "encaixe",
+  "origem": "ugc/u1_maker_segurando.jpg"
+ },
+ "ugc_resultado_1x1.jpg": {
+  "width": 1080,
+  "height": 1080,
+  "bytes": 231465,
+  "modo": "recorte",
+  "origem": "ugc/u3_resultado_pecas.jpg"
+ },
+ "ugc_resultado_4x5.jpg": {
+  "width": 1080,
+  "height": 1350,
+  "bytes": 270855,
+  "modo": "recorte",
+  "origem": "ugc/u3_resultado_pecas.jpg"
+ },
+ "ugc_resultado_9x16.jpg": {
+  "width": 1080,
+  "height": 1920,
+  "bytes": 256759,
+  "modo": "encaixe",
+  "origem": "ugc/u3_resultado_pecas.jpg"
+ },
+ "ugc_resultado_191x1.jpg": {
+  "width": 1200,
+  "height": 628,
+  "bytes": 109244,
+  "modo": "encaixe",
+  "origem": "ugc/u3_resultado_pecas.jpg"
+ },
+ "produto_recorte.png": {
+  "width": 753,
+  "height": 1024,
+  "bytes": 1207768,
+  "modo": "recorte-fundo",
+  "origem": "01_principal.jpg"
+ }
+}

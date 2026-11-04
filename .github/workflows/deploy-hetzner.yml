@@ -1,0 +1,30 @@
+name: Deploy Hetzner (agente + migrações do banco)
+
+on:
+  push:
+    branches: [main, kit-teste-anuncios-marketplaces]
+    paths: ["supabase/migrations/**", "worker/**", "scripts/**", "infra/**", "lib/marketplace/data/**"]
+  workflow_dispatch:
+
+concurrency: { group: deploy-hetzner, cancel-in-progress: false }
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifica se o servidor já foi configurado
+        id: cfg
+        env: { HOST: "${{ secrets.HETZNER_HOST }}" }
+        run: echo "ok=$([ -n "$HOST" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - name: Deploy via SSH
+        if: steps.cfg.outputs.ok == 'true'
+        env:
+          HOST: ${{ secrets.HETZNER_HOST }}
+          KEY: ${{ secrets.HETZNER_SSH_KEY }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          mkdir -p ~/.ssh && printf '%s\n' "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
+          ssh -i ~/.ssh/id -o StrictHostKeyChecking=accept-new root@"$HOST" "/opt/fortuna/infra/deploy.sh '$BRANCH'"
+      - name: Servidor ainda não configurado
+        if: steps.cfg.outputs.ok != 'true'
+        run: echo "Secrets HETZNER_HOST/HETZNER_SSH_KEY ausentes — rode infra/bootstrap.sh no servidor."

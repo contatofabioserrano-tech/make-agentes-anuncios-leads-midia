@@ -1,0 +1,349 @@
+{
+  "listing": {
+    "slug": "hyper-petg-preto",
+    "sku": "3301030043",
+    "odooId": 58,
+    "brand": "Creality",
+    "brandAuthorizationConfirmed": false,
+    "category": "Computadores e Escritório > Impressoras 3D e Acessórios > Filamentos para Impressora 3D",
+    "title": "Filamento PETG Creality Hyper Series 1,75 mm 1 kg para Impressora 3D de Alta Velocidade até 600 mm/s",
+    "variationStyle": "Cor",
+    "variations": [
+      {
+        "value": "Preto",
+        "sku": "3301030043",
+        "stock": null
+      }
+    ],
+    "bullets": [
+      "Velocidade: imprime de 30 a 600 milímetros por segundo em impressoras 3D FDM de alta velocidade",
+      "Precisão: diâmetro de 1,75 milímetro com tolerância de 0,03 milímetro para mais ou para menos",
+      "Resistência: boa adesão entre camadas e alta resistência à tração, ideal para peças funcionais",
+      "Configuração recomendada: bico de 220 a 260 graus Celsius, mesa de 60 a 80 graus Celsius e ventoinha a 50 por cento",
+      "Embalagem: rolo de 1 quilograma embalado a vácuo com sílica gel contra umidade"
+    ],
+    "boxContents": "1 rolo de filamento PETG Creality Hyper Series de 1 quilograma, cor preta.",
+    "origin": "China",
+    "warranty": "30 dias contra defeitos de fabricação, conforme o Código de Defesa do Consumidor.",
+    "care": "Guarde o rolo em local seco e fechado, de preferência com sílica gel e longe da luz solar direta. Depois de aberto, mantenha o filamento em embalagem vedada para evitar a absorção de umidade.",
+    "intro": "O Filamento PETG Creality Hyper Series foi desenvolvido para impressoras 3D FDM de alta velocidade. A fórmula Hyper tem fluidez térmica aprimorada e resfriamento rápido, o que permite imprimir rápido sem perder a adesão entre camadas. É indicado para peças funcionais, suportes, engrenagens, caixas, protótipos e peças que precisam aguentar esforço.",
+    "attributes": {
+      "Marca": "Creality",
+      "Linha": "Hyper Series PETG",
+      "Material": "PETG",
+      "Diâmetro do filamento": "1,75 mm",
+      "Tolerância": "± 0,03 mm",
+      "Peso líquido": "1 kg",
+      "Cor": "Preto",
+      "Velocidade de impressão": "30 a 600 mm/s",
+      "Temperatura do bico": "220 a 260 °C",
+      "Temperatura da mesa": "60 a 80 °C",
+      "Ventoinha": "50%",
+      "Compatibilidade": "Impressoras 3D FDM com bico para filamento de 1,75 mm",
+      "País de origem": "China"
+    },
+    "price": null,
+    "packageDimensionsCm": null,
+    "packageWeightKg": null,
+    "images": [
+      {
+        "file": "01_principal.jpg",
+        "role": "principal",
+        "alt": "Rolo de filamento PETG preto Creality Hyper Series, vista frontal em fundo branco",
+        "hasAddedText": false,
+        "aiGenerated": false,
+        "angle": "frontal 3/4"
+      },
+      {
+        "file": "02_uso_impressora.jpg",
+        "role": "galeria",
+        "alt": "Rolo ao lado de uma impressora 3D imprimindo peça preta",
+        "hasAddedText": false,
+        "aiGenerated": true,
+        "angle": "cenario de uso"
+      },
+      {
+        "file": "03_pecas_funcionais.jpg",
+        "role": "galeria",
+        "alt": "Peças funcionais impressas em PETG preto: engrenagem, suporte, caixa",
+        "hasAddedText": false,
+        "aiGenerated": true,
+        "angle": "aplicacoes"
+      },
+      {
+        "file": "04_detalhe_filamento.jpg",
+        "role": "galeria",
+        "alt": "Close-up do filamento PETG preto brilhante no rolo",
+        "hasAddedText": false,
+        "aiGenerated": true,
+        "angle": "close-up"
+      },
+      {
+        "file": "05_escala_mao.jpg",
+        "role": "galeria",
+        "alt": "Mão segurando o rolo para mostrar o tamanho",
+        "hasAddedText": false,
+        "aiGenerated": true,
+        "angle": "escala"
+      },
+      {
+        "file": "06_lateral.jpg",
+        "role": "galeria",
+        "alt": "Vista lateral do rolo",
+        "hasAddedText": false,
+        "aiGenerated": true,
+        "angle": "lateral"
+      },
+      {
+        "file": "07_embalagem_vacuo.jpg",
+        "role": "galeria",
+        "alt": "Rolo embalado a vácuo com sílica gel",
+        "hasAddedText": false,
+        "aiGenerated": true,
+        "angle": "embalagem"
+      },
+      {
+        "file": "ugc/u1_maker_segurando.jpg",
+        "role": "galeria",
+        "alt": "Maker segurando o rolo Hyper PETG ao lado da impressora 3D",
+        "hasAddedText": false,
+        "aiGenerated": true,
+        "angle": "pessoa usando"
+      },
+      {
+        "file": "ugc/u3_resultado_pecas.jpg",
+        "role": "galeria",
+        "alt": "Peças funcionais impressas em PETG preto na mão do cliente",
+        "hasAddedText": false,
+        "aiGenerated": true,
+        "angle": "resultado"
+      },
+      {
+        "file": "d1_configuracoes_impressao.jpg",
+        "role": "descricao",
+        "alt": "Tabela de configurações de impressão",
+        "hasAddedText": true,
+        "aiGenerated": true,
+        "angle": "ficha"
+      },
+      {
+        "file": "d2_destaques.jpg",
+        "role": "descricao",
+        "alt": "Destaques: 600 mm/s, 1,75 mm, 1 kg, vácuo",
+        "hasAddedText": true,
+        "aiGenerated": true,
+        "angle": "infografico"
+      },
+      {
+        "file": "faq1_compatibilidade.jpg",
+        "role": "descricao",
+        "alt": "Dúvida: funciona na minha impressora? (1,75 mm, FDM)",
+        "hasAddedText": true,
+        "aiGenerated": false,
+        "angle": "faq-faq1_compatibilidade.jpg"
+      },
+      {
+        "file": "faq2_petg_ou_pla.jpg",
+        "role": "descricao",
+        "alt": "Dúvida: PETG ou PLA?",
+        "hasAddedText": true,
+        "aiGenerated": false,
+        "angle": "faq-faq2_petg_ou_pla.jpg"
+      },
+      {
+        "file": "faq3_armazenamento.jpg",
+        "role": "descricao",
+        "alt": "Dúvida: como guardar o filamento?",
+        "hasAddedText": true,
+        "aiGenerated": false,
+        "angle": "faq-faq3_armazenamento.jpg"
+      },
+      {
+        "file": "faq4_embalagem.jpg",
+        "role": "descricao",
+        "alt": "Dúvida: o que vem na embalagem?",
+        "hasAddedText": true,
+        "aiGenerated": false,
+        "angle": "faq-faq4_embalagem.jpg"
+      }
+    ],
+    "videos": [
+      {
+        "file": "video_produto.mp4",
+        "role": "produto"
+      }
+    ],
+    "marketPrices": {
+      "consultadoEm": "2026-11-02",
+      "nota": "Preços públicos do Hyper PETG 1 kg (sites abertos). TikTok Shop bloqueia leitura automática: conferir no app.",
+      "itens": [
+        {
+          "loja": "Creality Brasil (oficial)",
+          "produto": "Hyper PETG 1 kg Preto",
+          "preco": 363.0,
+          "status": "Esgotado",
+          "url": "https://crealitybrasil.com.br/collections/hyper-petg"
+        },
+        {
+          "loja": "Creality Brasil (oficial)",
+          "produto": "Hyper PETG 1 kg Branco",
+          "preco": 121.11,
+          "status": "Esgotado",
+          "url": "https://crealitybrasil.com.br/collections/hyper-petg"
+        },
+        {
+          "loja": "Slim3D",
+          "produto": "Hyper PETG 1 kg Black",
+          "preco": 124.9,
+          "status": "Indisponível",
+          "url": "https://www.slim3d.com.br/filamentos-premium/creality-hyper/filamento-hyper-petg-1-75-1kg-creality"
+        },
+        {
+          "loja": "Nic3D",
+          "produto": "Hyper PETG 1 kg Transparente",
+          "preco": 119.0,
+          "status": "anúncio (busca)",
+          "url": "https://www.nic3d.com.br/products/filamento-3d-creality-cr-petg-1-75mm-1kg-transparente"
+        },
+        {
+          "loja": "Mercado Livre",
+          "produto": "Hyper PETG 1 kg (vários vendedores)",
+          "preco": 129.0,
+          "status": "faixa R$ 129–132 (busca)",
+          "url": "https://lista.mercadolivre.com.br/filamento-petg-creality"
+        }
+      ]
+    }
+  },
+  "feed": {
+    "videoFile": "video_feed_9x16.mp4",
+    "caption": "Olha a velocidade dessa impressora 🔥 600 mm/s! E o filamento aguenta? O Creality Hyper PETG aguenta: camada firme, peça resistente, pronta pra usar. Rolo de 1 kg embalado a vácuo. Toca no carrinho e garante o teu 🧡",
+    "hashtags": [
+      "#impressao3d",
+      "#impressora3d",
+      "#filamento3d",
+      "#petg",
+      "#creality",
+      "#3dprinting",
+      "#maker",
+      "#impressao3dbrasil",
+      "#achadinhos",
+      "#tiktokshopbrasil"
+    ],
+    "searchKeywords": [
+      "filamento petg",
+      "filamento petg 1kg",
+      "filamento petg preto",
+      "filamento 1,75mm",
+      "filamento creality",
+      "creality hyper petg",
+      "filamento para impressora 3d",
+      "filamento alta velocidade",
+      "petg 1,75",
+      "filamento impressora 3d rapida",
+      "peças funcionais impressão 3d",
+      "filamento resistente",
+      "filamento petg alta resistência",
+      "filamento resistente ao impacto",
+      "filamento impressão rápida"
+    ],
+    "hooks": [
+      "Olha a velocidade dessa impressora… 600 mm/s! Mas e o filamento, aguenta?",
+      "PLA ou PETG? Se a peça vai fazer força, é esse aqui.",
+      "Para de imprimir peça que quebra na primeira usada.",
+      "3 configurações pra imprimir PETG rápido sem dor de cabeça.",
+      "Esse rolo chega embalado a vácuo — e isso muda tudo no PETG."
+    ],
+    "script": [
+      {
+        "t": "0–4,6 s",
+        "visual": "Close do bico imprimindo rápido uma peça preta em PETG (uso real)",
+        "fala": "Olha a velocidade dessa impressora… 600 milímetros por segundo!",
+        "legenda": "OLHA A VELOCIDADE / DESSA IMPRESSORA / 600 MM/S"
+      },
+      {
+        "t": "4,6–10 s",
+        "visual": "Mãos abrindo a embalagem a vácuo e colocando o rolo Creality Hyper na impressora",
+        "fala": "Mas e o filamento, aguenta? Esse aqui aguenta: Creality Hyper PETG.",
+        "legenda": "MAS E O FILAMENTO, / AGUENTA? / CREALITY HYPER PETG"
+      },
+      {
+        "t": "10–11,3 s",
+        "visual": "Mesa flexível dobrando e a peça preta soltando limpa",
+        "fala": "Camada firme,",
+        "legenda": "CAMADA FIRME"
+      },
+      {
+        "t": "11,3–13,4 s",
+        "visual": "Gancho impresso na parede segurando mochila pesada (teste de força)",
+        "fala": "peça resistente, pronta pra usar.",
+        "legenda": "PEÇA RESISTENTE / PRONTA PRA USAR"
+      },
+      {
+        "t": "13,4–15,8 s",
+        "visual": "Foto real do rolo embalado a vácuo com sílica",
+        "fala": "Rolo de um quilo, embalado a vácuo.",
+        "legenda": "ROLO DE 1 KG / EMBALADO A VÁCUO"
+      },
+      {
+        "t": "15,8–18 s",
+        "visual": "Cartão final: produto + botão 'Toca no carrinho'",
+        "fala": "Toca no carrinho e garante o teu!",
+        "legenda": "(no cartão)"
+      }
+    ],
+    "ctas": [
+      "Toca no carrinho laranja e garante o seu",
+      "Clica no produto aqui embaixo do vídeo",
+      "Comenta PETG que eu te passo as configurações de impressão",
+      "Salva esse vídeo pra não esquecer as temperaturas",
+      "Marca aquele amigo que vive imprimindo peça que quebra"
+    ],
+    "creatorBrief": [
+      "Mostre o rolo saindo da embalagem a vácuo (prova de produto real, gera confiança).",
+      "Imprima uma peça funcional (suporte, engrenagem) e mostre ela fazendo força.",
+      "Fale as configurações reais: bico 220–260 °C, mesa 60–80 °C, ventoinha 50%.",
+      "Não prometa o que não está na ficha (ex.: 'resistente a calor extremo', 'à prova d'água').",
+      "Não fale preço com desconto inventado nem 'mais vendido' — a política do TikTok Shop proíbe.",
+      "Termine sempre com o CTA para o carrinho laranja."
+    ],
+    "postingPlan": [
+      "Semana 1: 3 vídeos com ganchos diferentes (1, 2 e 3) — mesmo produto, mede qual retém mais.",
+      "Repostar o gancho vencedor com nova abertura nos dias seguintes.",
+      "Ativar o produto no programa de afiliados para criadores de impressão 3D.",
+      "Live curta mostrando a impressão rápida com o filamento, com o produto fixado."
+    ],
+    "voice": {
+      "provider": "ElevenLabs",
+      "voz": "Gabriel's voice (pt-BR, influência carioca, ritmo de vendas)",
+      "modelo": "eleven_v4",
+      "texto": "Olha a velocidade dessa impressora… seiscentos milímetros por segundo! Mas e o filamento, aguenta? Esse aqui aguenta: Creality Hyper PETG. Camada firme, peça resistente, pronta pra usar. Rolo de um quilo, embalado a vácuo. Toca no carrinho e garante o teu!"
+    }
+  },
+  "faqs": [
+    {
+      "q": "Funciona na minha impressora?",
+      "a": "Funciona em impressoras 3D FDM com bico para filamento de 1,75 mm. A linha Hyper foi feita para máquinas de alta velocidade, mas imprime bem de 30 a 600 mm/s."
+    },
+    {
+      "q": "Quais temperaturas usar?",
+      "a": "Bico entre 220 e 260 °C, mesa entre 60 e 80 °C e ventoinha em 50%, conforme o rótulo oficial do rolo."
+    },
+    {
+      "q": "PETG ou PLA: qual escolher?",
+      "a": "O PETG é mais resistente a impacto e a temperatura que o PLA, por isso é indicado para peças funcionais. O PLA é mais simples de imprimir e bom para peças decorativas."
+    },
+    {
+      "q": "Como guardar o filamento?",
+      "a": "O rolo vem embalado a vácuo com sílica gel. Depois de aberto, guarde em saco fechado com sílica ou em caixa seca para evitar umidade."
+    },
+    {
+      "q": "O que vem na embalagem?",
+      "a": "1 rolo de filamento PETG preto de 1 kg, Creality Hyper Series, diâmetro de 1,75 mm (±0,03 mm)."
+    },
+    {
+      "q": "Vocês vendem no atacado?",
+      "a": "Sim. A caixa master tem 12 rolos. Deixe seu contato no formulário e a equipe responde com preço e prazo."
+    }
+  ]
+}

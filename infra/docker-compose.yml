@@ -1,0 +1,24 @@
+# Servidor Hetzner: tudo que precisa ficar ligado 24 h.
+# Portal continua na Vercel; banco continua no Supabase.
+#   docker compose -f infra/docker-compose.yml --env-file .env.server up -d --build
+services:
+  agente:
+    build: { context: .., dockerfile: infra/Dockerfile.agente }
+    env_file: ../.env.server
+    restart: unless-stopped
+    volumes: ["higgsfield:/root/.config"]   # login da CLI da Higgsfield persiste
+
+  render:
+    build: { context: ../worker, dockerfile: Dockerfile }
+    env_file: ../.env.server
+    restart: unless-stopped
+
+  # sincroniza o catálogo do Odoo (SOMENTE LEITURA) a cada 6 h, se houver login configurado
+  odoo-sync:
+    build: { context: .., dockerfile: infra/Dockerfile.agente }
+    env_file: ../.env.server
+    restart: unless-stopped
+    entrypoint: ["sh", "-c", "while true; do if [ -n \"$$ODOO_PASSWORD\" ]; then python3 scripts/odoo/sync_catalog.py && python3 scripts/odoo/extract_options.py || echo 'sync falhou'; else echo 'ODOO_PASSWORD vazio: sync desligado'; fi; sleep 21600; done"]
+
+volumes:
+  higgsfield:

@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f2f2ee;
+  --foreground: #111111;
+  --red: #e11c24;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  /* Títulos no padrão Kairós: geométrico, apertado, com ponto vermelho opcional (.dot) */
+  .display {
+    @apply font-display font-bold tracking-[-0.02em] text-ink;
+  }
+  .dot::after {
+    content: ".";
+    color: var(--red);
+  }
+  /* Rótulo pequeno em mono, maiúsculo (ex.: "BRASIL ↔ CHINA · NO TEMPO CERTO.") */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-muted-fg;
+  }
+
+  .gradient-text {
+    @apply text-kairos-red;
+  }
+
+  /* Botões em pílula com seta ↗ (a seta vem no conteúdo) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-2.5 font-mono text-[12px] font-medium uppercase tracking-[0.08em] text-white transition-all duration-200 hover:bg-black hover:shadow-soft-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/80 bg-white px-5 py-2.5 font-mono text-[12px] font-medium uppercase tracking-[0.08em] text-ink transition-all duration-200 hover:bg-ink hover:text-white active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-red {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-kairos-red px-5 py-2.5 font-mono text-[12px] font-medium uppercase tracking-[0.08em] text-white transition-all duration-200 hover:bg-kairos-red-dark active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-muted-fg transition-colors hover:bg-black/[0.05] hover:text-ink;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white;
+  }
+  .card-dark {
+    @apply rounded-2xl border border-white/[0.08] bg-surface-dark text-white;
+  }
+  .panel {
+    @apply rounded-2xl bg-[#E9E9E3];
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition-shadow placeholder:text-muted-fg/70 focus:border-ink focus:ring-2 focus:ring-ink/10;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-medium text-ink;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium;
+  }
+
+  /* Barra de progresso fina (funil/completude) */
+  .bar {
+    @apply h-1.5 w-full overflow-hidden rounded-full bg-[#E6E6E0];
+  }
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 17, 0.14);
+  border-radius: 999px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}

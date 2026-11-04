@@ -1,0 +1,167 @@
+{
+ "01_principal.jpg": {
+  "width": 1600,
+  "height": 1600,
+  "bytes": 338691,
+  "whiteBorderRatio": 1.0,
+  "colorfulness": 27.26
+ },
+ "02_uso_impressora.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 294816,
+  "whiteBorderRatio": 0.0393,
+  "colorfulness": 17.08
+ },
+ "03_pecas_funcionais.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 270427,
+  "whiteBorderRatio": 0.0,
+  "colorfulness": 9.09
+ },
+ "04_detalhe_filamento.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 244742,
+  "whiteBorderRatio": 0.3829,
+  "colorfulness": 5.78
+ },
+ "05_escala_mao.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 222499,
+  "whiteBorderRatio": 0.0,
+  "colorfulness": 14.73
+ },
+ "06_lateral.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 112520,
+  "whiteBorderRatio": 1.0,
+  "colorfulness": 8.16
+ },
+ "07_embalagem_vacuo.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 231250,
+  "whiteBorderRatio": 1.0,
+  "colorfulness": 19.3
+ },
+ "d1_configuracoes_impressao.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 257823,
+  "whiteBorderRatio": 1.0,
+  "colorfulness": 29.6
+ },
+ "d2_destaques.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 238932,
+  "whiteBorderRatio": 0.9999,
+  "colorfulness": 35.98
+ },
+ "faq1_compatibilidade.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 175772,
+  "whiteBorderRatio": 0.9934,
+  "colorfulness": 24.64
+ },
+ "faq2_petg_ou_pla.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 157191,
+  "whiteBorderRatio": 0.9934,
+  "colorfulness": 11.27
+ },
+ "faq3_armazenamento.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 171074,
+  "whiteBorderRatio": 0.9934,
+  "colorfulness": 10.29
+ },
+ "faq4_embalagem.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 137033,
+  "whiteBorderRatio": 0.9934,
+  "colorfulness": 18.66
+ },
+ "video_feed_9x16.mp4": {
+  "width": 1080,
+  "height": 1920,
+  "bytes": 10067263,
+  "durationSec": 18.0
+ },
+ "video_produto.mp4": {
+  "width": 720,
+  "height": 1280,
+  "bytes": 2053615,
+  "durationSec": 18.0
+ },
+ "ugc/u1_maker_segurando.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 319295,
+  "whiteBorderRatio": 0.0076,
+  "colorfulness": 32.52
+ },
+ "ugc/u2_carregando_impressora.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 240806,
+  "whiteBorderRatio": 0.047,
+  "colorfulness": 37.32
+ },
+ "ugc/u3_resultado_pecas.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 275593,
+  "whiteBorderRatio": 0.0,
+  "colorfulness": 59.22
+ },
+ "ugc/u4_pecas_em_uso.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 272421,
+  "whiteBorderRatio": 0.0166,
+  "colorfulness": 39.39
+ },
+ "ugc/u5_unboxing.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 323154,
+  "whiteBorderRatio": 0.0,
+  "colorfulness": 53.59
+ },
+ "ugc/u6_pequeno_negocio.jpg": {
+  "width": 1200,
+  "height": 1200,
+  "bytes": 290726,
+  "whiteBorderRatio": 0.0517,
+  "colorfulness": 41.51
+ },
+ "ugc/u7_ads_4x5.jpg": {
+  "width": 1280,
+  "height": 1600,
+  "bytes": 289627,
+  "whiteBorderRatio": 0.0,
+  "colorfulness": 25.99
+ },
+ "ugc/u8_creator_9x16.jpg": {
+  "width": 905,
+  "height": 1600,
+  "bytes": 313346,
+  "whiteBorderRatio": 0.0004,
+  "colorfulness": 41.89
+ },
+ "ugc/ugc_video_9x16.mp4": {
+  "width": 1080,
+  "height": 1920,
+  "bytes": 5028955,
+  "durationSec": 14.27
+ }
+}
