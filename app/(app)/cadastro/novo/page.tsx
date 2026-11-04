@@ -5,7 +5,7 @@ import { fromOdoo, OPTION_MODELS, type DraftData } from "@/lib/odoo/cotar";
 import { CotarForm, loadOptions } from "../CotarForm";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Novo cadastro — Kairós" };
+export const metadata = { title: "Novo cadastro — MakeOne" };
 
 export default async function NovoCadastro({ searchParams }: { searchParams: { de?: string; erro?: string } }) {
   const supabase = createClient();

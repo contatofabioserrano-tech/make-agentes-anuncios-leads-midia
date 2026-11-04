@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { switchCompany } from "@/lib/company-actions";
+import { usesOdoo } from "@/lib/features";
 
 type IconName =
   | "painel" | "catalogo" | "agente" | "anuncios" | "gerador" | "projetos"
@@ -44,10 +45,10 @@ interface CompanyLite { id: string; name: string; kind: "odoo" | "padrao"; logo?
 interface SidebarProps { name: string; email: string; isAdmin: boolean; initialCollapsed?: boolean; companies?: CompanyLite[]; activeCompany?: CompanyLite | null }
 
 /** Cookie lido no servidor: o menu já nasce no estado certo (sem piscar ao carregar). */
-export const SIDEBAR_COOKIE = "kairos_sidebar_collapsed";
+export const SIDEBAR_COOKIE = "makeone_sidebar_collapsed";
 
 export function Sidebar({ name, email, isAdmin, initialCollapsed = false, companies = [], activeCompany = null }: SidebarProps) {
-  const isOdoo = activeCompany?.kind === "odoo";
+  const isOdoo = usesOdoo(activeCompany);
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(initialCollapsed);
   const [open, setOpen] = useState(false); // gaveta no celular
@@ -77,8 +78,8 @@ export function Sidebar({ name, email, isAdmin, initialCollapsed = false, compan
   const groups: NavGroup[] = [
     { title: "Operação", items: [
       { href: "/painel", label: "Visão geral", icon: "painel" },
+      { href: "/fontes", label: "Enviar materiais", icon: "fontes", badge: isOdoo ? undefined : "início" },
       ...(isOdoo ? [{ href: "/catalogo", label: "Catálogo Odoo", icon: "catalogo" as IconName }] : []),
-      { href: "/fontes", label: "Enviar materiais", icon: "fontes", badge: isOdoo ? undefined : "novo" },
       { href: "/cadastro", label: isOdoo ? "Cadastro de produto" : "Produtos", icon: "cadastro" },
       { href: "/agente", label: "Agente de anúncios", icon: "agente", badge: "IA" },
       { href: "/anuncios", label: "Anúncios", icon: "anuncios" },
@@ -120,7 +121,7 @@ export function Sidebar({ name, email, isAdmin, initialCollapsed = false, compan
                     aria-current={active ? "page" : undefined}
                     className={`group flex items-center gap-3 rounded-lg py-2.5 text-[14px] transition-colors ${
                       mini ? "justify-center px-0" : "px-3"
-                    } ${active ? "bg-kairos-red-soft text-kairos-red" : "text-[#3A3A38] hover:bg-black/[0.04] hover:text-ink"}`}
+                    } ${active ? "bg-accent-soft text-accent" : "text-[#3A3A38] hover:bg-black/[0.04] hover:text-ink"}`}
                   >
                     <Icon name={item.icon} />
                     {!mini && <span className="truncate">{item.label}</span>}
@@ -177,7 +178,7 @@ export function Sidebar({ name, email, isAdmin, initialCollapsed = false, compan
         } ${mini ? "w-[76px]" : "w-[272px]"}`}
       >
         <div className={`flex items-center ${mini ? "flex-col gap-3 px-2 py-5" : "justify-between px-5 py-6"}`}>
-          <Link href="/painel" aria-label="Grupo Kairós — início">
+          <Link href="/painel" aria-label="MakeOne — início">
             <Logo compact={mini} />
           </Link>
           <button ref={closeBtn} type="button" onClick={open ? () => setOpen(false) : toggle}
@@ -190,7 +191,7 @@ export function Sidebar({ name, email, isAdmin, initialCollapsed = false, compan
           <form action={switchCompany} className="mx-5 mb-1 flex items-center gap-3 rounded-xl border border-line px-3 py-2">
             <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-line bg-white">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              {activeCompany.logo ? <img src={activeCompany.logo} alt="" className="h-full w-full object-contain" /> : <span className="text-sm font-bold text-kairos-red">{activeCompany.name[0]}</span>}
+              {activeCompany.logo ? <img src={activeCompany.logo} alt="" className="h-full w-full object-contain" /> : <span className="text-sm font-bold text-accent">{activeCompany.name[0]}</span>}
             </div>
             <div className="min-w-0 flex-1">
             <label htmlFor="empresa-ativa" className="eyebrow block !text-[10px]">Empresa</label>

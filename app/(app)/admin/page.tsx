@@ -7,7 +7,7 @@ import { MachineStatus } from "@/components/MachineStatus";
 import type { Profile, Project } from "@/lib/types";
 import { AdminProjectsTable, type AdminProjectRow } from "./AdminProjectsTable";
 
-export const metadata = { title: "Admin — Fortuna Creative" };
+export const metadata = { title: "Admin — MakeOne" };
 export const dynamic = "force-dynamic";
 
 async function countRows(

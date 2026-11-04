@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 import { requireCompany, byCompany } from "@/lib/company";
+import { usesOdoo } from "@/lib/features";
 import { brl, fmtDate, MARKETPLACES, type CatalogProduct } from "@/lib/marketplace/catalog";
 import { LISTINGS } from "@/lib/marketplace/listings";
 import { createAdJob } from "../../agente/actions";
@@ -16,8 +18,8 @@ const txt = (v: unknown) => (typeof v === "string" && v.trim() ? v : null);
 function Field({ label, value, required }: { label: string; value: string | null; required?: boolean }) {
   return (
     <div className="border-b border-line py-2.5 sm:grid sm:grid-cols-[220px_1fr] sm:gap-4">
-      <dt className="text-xs text-muted-fg">{label}{required && <span className="text-kairos-red"> *</span>}</dt>
-      <dd className={`mt-0.5 text-sm sm:mt-0 ${value ? "text-ink" : required ? "text-kairos-red" : "text-muted-fg"}`}>
+      <dt className="text-xs text-muted-fg">{label}{required && <span className="text-accent"> *</span>}</dt>
+      <dd className={`mt-0.5 text-sm sm:mt-0 ${value ? "text-ink" : required ? "text-accent" : "text-muted-fg"}`}>
         {value ?? (required ? "Faltando" : "—")}
       </dd>
     </div>
@@ -36,7 +38,9 @@ function Section({ n, title, children }: { n: string; title: string; children: R
 
 export default async function ProdutoPage({ params, searchParams }: { params: { id: string }; searchParams: { erro?: string } }) {
   const supabase = createClient();
-  const { data } = await supabase.from("mk_catalog_products").select("*").eq("odoo_id", Number(params.id)).match(byCompany((await requireCompany()).id)).maybeSingle();
+  const company = await requireCompany();
+  if (!usesOdoo(company)) redirect("/fontes");
+  const { data } = await supabase.from("mk_catalog_products").select("*").eq("odoo_id", Number(params.id)).match(byCompany(company.id)).maybeSingle();
   if (!data) notFound();
   const p = data as CatalogProduct;
   const d = p.data as D;
@@ -57,14 +61,14 @@ export default async function ProdutoPage({ params, searchParams }: { params: { 
               {p.has_image
                 // eslint-disable-next-line @next/next/no-img-element
                 ? <img src={imgUrl} alt={p.name_pt} className="h-full w-full object-contain p-2" />
-                : <span className="px-3 text-center font-mono text-[10px] uppercase text-kairos-red">Sem foto no Odoo</span>}
+                : <span className="px-3 text-center font-mono text-[10px] uppercase text-accent">Sem foto no Odoo</span>}
             </div>
             <div className="min-w-0">
               <p className="eyebrow mb-2">{p.brand ?? "Sem marca"} · {p.category ?? "Sem categoria"}</p>
               <h1 className="display text-[26px] leading-tight sm:text-[34px]">{p.name_pt}</h1>
               <p className="mt-2 font-mono text-[11px] text-muted-fg">Odoo #{p.odoo_id} · SKU {p.sku ?? "—"} · status {p.status ?? "—"} · sincronizado {fmtDate(p.synced_at)}</p>
               <div className="mt-4 flex items-center gap-3">
-                <div className="bar w-48"><div className={`h-full rounded-full ${p.completeness >= 90 ? "bg-emerald-600" : p.completeness >= 50 ? "bg-ink" : "bg-kairos-red"}`} style={{ width: `${p.completeness}%` }} /></div>
+                <div className="bar w-48"><div className={`h-full rounded-full ${p.completeness >= 90 ? "bg-emerald-600" : p.completeness >= 50 ? "bg-ink" : "bg-accent"}`} style={{ width: `${p.completeness}%` }} /></div>
                 <span className="text-sm font-medium">{p.completeness}% do cadastro</span>
               </div>
             </div>
@@ -133,7 +137,7 @@ export default async function ProdutoPage({ params, searchParams }: { params: { 
             <p className="eyebrow mb-2">O que falta para anunciar</p>
             {p.missing.length ? (
               <ul className="space-y-1.5">
-                {p.missing.map((m) => <li key={m} className="flex gap-2 text-sm"><span className="text-kairos-red">●</span>{m}</li>)}
+                {p.missing.map((m) => <li key={m} className="flex gap-2 text-sm"><span className="text-accent">●</span>{m}</li>)}
               </ul>
             ) : <p className="text-sm text-emerald-700">Cadastro completo para anunciar.</p>}
           </section>
@@ -141,7 +145,7 @@ export default async function ProdutoPage({ params, searchParams }: { params: { 
           <section className="card p-5">
             <p className="eyebrow mb-1">Agente de anúncios</p>
             <h2 className="display mb-3 text-[22px]">Gerar anúncios</h2>
-            {searchParams.erro && <p className="mb-3 rounded-lg bg-kairos-red-soft p-3 text-xs text-kairos-red">{searchParams.erro}</p>}
+            {searchParams.erro && <p className="mb-3 rounded-lg bg-accent-soft p-3 text-xs text-accent">{searchParams.erro}</p>}
             <form action={createAdJob} className="space-y-3">
               <input type="hidden" name="odoo_id" value={p.odoo_id} />
               <fieldset>

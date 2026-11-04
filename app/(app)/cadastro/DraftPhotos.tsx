@@ -41,7 +41,7 @@ export function DraftPhotos({ draftId, companyId, fotos }: { draftId: string; co
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`/fontes/arquivo?path=${encodeURIComponent(f)}`} alt="" className="h-24 w-24 rounded-lg border border-line object-cover" />
             {k === 0 && <span className="absolute left-1 top-1 rounded bg-ink px-1.5 py-0.5 font-mono text-[9px] uppercase text-white">principal</span>}
-            <button type="button" onClick={() => remove(f)} aria-label="Remover foto" className="absolute right-1 top-1 rounded-full bg-white/90 px-1.5 text-xs text-kairos-red">×</button>
+            <button type="button" onClick={() => remove(f)} aria-label="Remover foto" className="absolute right-1 top-1 rounded-full bg-white/90 px-1.5 text-xs text-accent">×</button>
           </div>
         ))}
         <label className="flex h-24 w-24 cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-line text-center text-[11px] text-muted-fg hover:border-ink">

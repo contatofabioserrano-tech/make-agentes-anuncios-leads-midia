@@ -1,4 +1,4 @@
-/** Cabeçalho de página no padrão CRM Kairós: rótulo mono, título grande com ponto vermelho. */
+/** Cabeçalho de página no padrão do portal: rótulo mono, título grande com ponto vermelho. */
 export function PageHeader({
   title,
   subtitle,

@@ -4,7 +4,7 @@ import { getCampaign, campaignSlugs } from "@/lib/marketplace/listings";
 import { AD_LIMITS, type AdPlatform } from "@/lib/marketplace/ads";
 import { CopyButton } from "../../anuncios/CopyButton";
 
-export const metadata = { title: "Campanha — Kairós" };
+export const metadata = { title: "Campanha — MakeOne" };
 export function generateStaticParams() { return campaignSlugs().map((slug) => ({ slug })); }
 
 const FMT_LABEL: Record<string, string> = { "1x1": "1:1", "4x5": "4:5", "9x16": "9:16", "191x1": "1,91:1" };

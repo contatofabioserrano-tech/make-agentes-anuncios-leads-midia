@@ -8,7 +8,7 @@ import { CancelJobButton } from "@/components/CancelJobButton";
 import { stageLabel } from "@/lib/flow";
 import type { Project, ProjectStatus, RenderJob, StageKey } from "@/lib/types";
 
-export const metadata = { title: "Pendentes — Fortuna Creative" };
+export const metadata = { title: "Pendentes — MakeOne" };
 export const dynamic = "force-dynamic";
 
 export default async function PendentesPage() {

@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Design system no padrão Grupo Kairós (site institucional + CRM):
- * preto/branco editorial, papel off-white, vermelho Kairós como acento,
+ * Design system MakeOne (base editorial herdada): preto/branco, papel off-white,
+ * uma cor de destaque (accent.*) — troque só aqui quando a paleta oficial da MakeOne chegar.
  * títulos geométricos (Saira), rótulos em mono (JetBrains Mono), corpo Inter.
  * Os nomes antigos (brand.*, surface.*, brand-gradient) foram mantidos e
  * remapeados para o novo visual, para todas as telas mudarem juntas.
@@ -23,10 +23,11 @@ const config: Config = {
         ink: "#111111",
         paper: "#F2F2EE",
         line: "#DDDDDD",
-        kairos: {
-          red: "#E11C24",
-          "red-dark": "#B71B24",
-          "red-soft": "#F6E7E6",
+        // Cor de destaque da marca (provisória até a paleta oficial da MakeOne).
+        accent: {
+          DEFAULT: "#E11C24",
+          dark: "#B71B24",
+          soft: "#F6E7E6",
         },
         brand: {
           blue: "#111111",

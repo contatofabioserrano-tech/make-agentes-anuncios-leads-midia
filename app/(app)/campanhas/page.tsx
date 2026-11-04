@@ -2,7 +2,7 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { campaignSlugs, getCampaign } from "@/lib/marketplace/listings";
 
-export const metadata = { title: "Campanhas — Kairós" };
+export const metadata = { title: "Campanhas — MakeOne" };
 
 export default function CampanhasPage() {
   const list = campaignSlugs().map((s) => ({ slug: s, c: getCampaign(s)! }));

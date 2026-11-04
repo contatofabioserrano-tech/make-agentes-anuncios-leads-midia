@@ -4,7 +4,7 @@ import { requireCompany, byCompany } from "@/lib/company";
 import { PageHeader } from "@/components/PageHeader";
 import { fmtDate } from "@/lib/marketplace/catalog";
 
-export const metadata = { title: "Auditoria — Fortuna" };
+export const metadata = { title: "Auditoria — MakeOne" };
 export const dynamic = "force-dynamic";
 
 const PAGE = 50;

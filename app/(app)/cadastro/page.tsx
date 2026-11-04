@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { fmtDate } from "@/lib/marketplace/catalog";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Cadastro de produto — Kairós" };
+export const metadata = { title: "Cadastro de produto — MakeOne" };
 
 export default async function CadastroPage() {
   const supabase = createClient();
@@ -21,7 +21,7 @@ export default async function CadastroPage() {
       </PageHeader>
       {rows.length === 0 ? (
         <div className="card p-8 text-center text-sm text-muted-fg">
-          Nenhum cadastro ainda. Comece do zero ou abra um produto no <Link href="/catalogo" className="text-kairos-red underline">Catálogo</Link> e use “Copiar para cadastro”.
+          Nenhum cadastro ainda. <Link href="/fontes" className="text-accent underline">Envie links, fotos ou PDFs</Link> do produto (o agente monta o cadastro) ou comece do zero em “Novo cadastro”.
         </div>
       ) : (
         <div className="card overflow-x-auto">
@@ -32,7 +32,7 @@ export default async function CadastroPage() {
             <tbody>
               {rows.map((r) => (
                 <tr key={r.id} className="border-t border-line">
-                  <td className="px-4 py-3"><Link href={`/cadastro/${r.id}`} className="font-medium text-ink hover:text-kairos-red">{r.name_pt}</Link></td>
+                  <td className="px-4 py-3"><Link href={`/cadastro/${r.id}`} className="font-medium text-ink hover:text-accent">{r.name_pt}</Link></td>
                   <td className="font-mono text-xs">{r.sku ?? "—"}</td>
                   <td className="text-xs">{r.source_odoo_id ? `Odoo #${r.source_odoo_id}` : "portal"}</td>
                   <td>{r.completeness}%</td>

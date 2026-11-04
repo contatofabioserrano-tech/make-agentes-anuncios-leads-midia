@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { requireSession, isAdmin } from "@/lib/auth";
 import { getActiveCompany, isLegacy } from "@/lib/company";
+import { ODOO_ENABLED } from "@/lib/features";
 import { LegacyNotice } from "@/components/LegacyNotice";
 import { PageHeader } from "@/components/PageHeader";
 import { CompanyFields } from "./CompanyFields";
@@ -18,7 +19,7 @@ export default async function EmpresasPage({ searchParams }: { searchParams: { e
   return (
     <div className="mx-auto max-w-[1200px] space-y-6 px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
       <PageHeader overline="Plataforma · multiempresa" title="Empresas" subtitle="Cada empresa vê só os próprios produtos, materiais, anúncios, leads e auditoria." />
-      {searchParams.erro && <p role="alert" className="rounded-xl bg-kairos-red-soft px-4 py-3 text-sm text-kairos-red">{searchParams.erro}</p>}
+      {searchParams.erro && <p role="alert" className="rounded-xl bg-accent-soft px-4 py-3 text-sm text-accent">{searchParams.erro}</p>}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {companies.map((c) => (
           <Link key={c.id} href={`/empresas/${c.id}`} className="card flex items-center gap-4 p-5 hover:shadow-soft-lg">
@@ -41,7 +42,7 @@ export default async function EmpresasPage({ searchParams }: { searchParams: { e
             <div><label htmlFor="kind" className="label">Tipo</label>
               <select id="kind" name="kind" className="input" defaultValue="padrao">
                 <option value="padrao">Padrão: envia links, fotos e PDFs</option>
-                <option value="odoo">Integrada a um Odoo</option>
+                {ODOO_ENABLED && <option value="odoo">Integrada a um Odoo</option>}
               </select></div>
           </section>
           <CompanyFields />

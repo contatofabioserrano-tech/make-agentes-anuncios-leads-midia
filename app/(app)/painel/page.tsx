@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { requireCompany, byCompany } from "@/lib/company";
+import { usesOdoo } from "@/lib/features";
 import { PageHeader } from "@/components/PageHeader";
 import { StatCard } from "@/components/StatCard";
 import { LISTINGS, evaluate } from "@/lib/marketplace/listings";
 import { fmtDate, type AdJob } from "@/lib/marketplace/catalog";
 
-export const metadata = { title: "Visão geral — Fortuna" };
+export const metadata = { title: "Visão geral — MakeOne" };
 export const dynamic = "force-dynamic";
 
 export default async function PainelPage() {
@@ -18,7 +19,8 @@ export default async function PainelPage() {
     supabase.from("mk_ad_jobs").select("id,odoo_id,status,created_at,steps").match(byCompany(company.id)).order("created_at", { ascending: false }).limit(5),
     supabase.from("mk_audit_events").select("id,at,actor_email,action,summary").match(byCompany(company.id)).order("at", { ascending: false }).limit(6),
   ]);
-  const isOdoo = company.kind === "odoo";
+  const isOdoo = usesOdoo(company);
+  const listHref = isOdoo ? "/catalogo" : "/cadastro";
   const ps = isOdoo ? products ?? [] : (drafts ?? []).map((d) => ({ odoo_id: 0, completeness: d.completeness, missing: [] as string[], has_image: true, brand: null }));
   const total = ps.length;
   const avg = total ? Math.round(ps.reduce((s, p) => s + (p.completeness ?? 0), 0) / total) : 0;
@@ -42,7 +44,9 @@ export default async function PainelPage() {
 
   return (
     <div className="mx-auto max-w-[1400px] space-y-8 px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
-      <PageHeader overline={`${company.name} · ${isOdoo ? "catálogo Odoo" : "materiais"} → anúncio`} title="Visão geral" subtitle={isOdoo ? "Cada produto do Odoo conectado ao próximo anúncio." : "Envie links, fotos e PDFs: a máquina monta o cadastro e os anúncios."} />
+      <PageHeader overline={`${company.name} · ${isOdoo ? "catálogo Odoo" : "materiais"} → anúncio`} title="Visão geral" subtitle={isOdoo ? "Cada produto do Odoo conectado ao próximo anúncio." : "Envie links, fotos e PDFs: a máquina monta o cadastro e os anúncios."}>
+        {!isOdoo && <Link href="/fontes" className="btn-primary">Enviar materiais ↗</Link>}
+      </PageHeader>
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <StatCard label="Produtos no catálogo" value={total} note={isOdoo ? "Espelho do Odoo" : "Cadastros da empresa"} />
@@ -55,7 +59,7 @@ export default async function PainelPage() {
         <section className="card p-5 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="display text-[22px]">Próximos movimentos</h2>
-            <Link href="/catalogo?ordem=completude" className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted-fg hover:text-ink">Ver catálogo ↗</Link>
+            <Link href={isOdoo ? "/catalogo?ordem=completude" : "/cadastro"} className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted-fg hover:text-ink">{isOdoo ? "Ver catálogo" : "Ver produtos"} ↗</Link>
           </div>
           <ul className="divide-y divide-line border-t border-line">
             {topGaps.map(([g, n]) => (
@@ -64,17 +68,17 @@ export default async function PainelPage() {
                   <p className="text-sm text-ink">Completar: {g}</p>
                   <p className="text-[11px] text-muted-fg">Bloqueia ou enfraquece o anúncio no marketplace</p>
                 </div>
-                <span className="shrink-0 rounded-full bg-kairos-red-soft px-2.5 py-1 font-mono text-[11px] text-kairos-red">{n} produtos</span>
+                <span className="shrink-0 rounded-full bg-accent-soft px-2.5 py-1 font-mono text-[11px] text-accent">{n} produtos</span>
               </li>
             ))}
-            {topGaps.length === 0 && <li className="py-6 text-sm text-muted-fg">Catálogo ainda não sincronizado.</li>}
+            {topGaps.length === 0 && <li className="py-6 text-sm text-muted-fg">{isOdoo ? "Catálogo ainda não sincronizado." : <>Nenhuma pendência. <Link href="/fontes" className="text-accent underline">Envie materiais</Link> de um produto para começar.</>}</li>}
           </ul>
         </section>
 
         <section className="card p-5 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="display text-[22px]">Seu funil</h2>
-            <Link href="/catalogo" className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted-fg hover:text-ink">Abrir ↗</Link>
+            <Link href={listHref} className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted-fg hover:text-ink">Abrir ↗</Link>
           </div>
           <ul className="space-y-4">
             {bands.map((b, i) => (
@@ -82,7 +86,7 @@ export default async function PainelPage() {
                 <span className="text-xs text-muted-fg">{b.label}</span>
                 <span className="text-sm font-medium tabular-nums">{b.n}</span>
                 <div className="bar col-span-2">
-                  <div className={`h-full rounded-full ${i === 3 ? "bg-kairos-red" : "bg-[#BDBDB4]"}`} style={{ width: `${(b.n / maxBand) * 100}%` }} />
+                  <div className={`h-full rounded-full ${i === 3 ? "bg-accent" : "bg-[#BDBDB4]"}`} style={{ width: `${(b.n / maxBand) * 100}%` }} />
                 </div>
               </li>
             ))}
@@ -125,7 +129,7 @@ export default async function PainelPage() {
       <section className="panel flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
         <div>
           <p className="eyebrow mb-2">Agente · seu próximo movimento</p>
-          <p className="display text-[26px] leading-tight sm:text-[32px]">Um produto do Odoo vira anúncio completo em minutos.</p>
+          <p className="display text-[26px] leading-tight sm:text-[32px]">{isOdoo ? "Um produto do Odoo" : "Links, fotos e PDFs de um produto"} viram anúncio completo em minutos.</p>
           <p className="mt-2 max-w-xl text-sm text-muted-fg">Fotos no padrão, cenas de uso, textos, dúvidas, vídeo e validação da política — tudo num pacote pronto para o Seller Center.</p>
         </div>
         <Link href="/agente" className="btn-primary shrink-0">Abrir agente ↗</Link>

@@ -5,7 +5,7 @@ export function CompanyFields({ c }: { c?: Partial<Company> }) {
   const a = c?.address ?? {};
   const F = ({ n, l, v, span, ph, req, max }: { n: string; l: string; v?: string | null; span?: boolean; ph?: string; req?: boolean; max?: number }) => (
     <div className={span ? "sm:col-span-2" : undefined}>
-      <label htmlFor={n} className="label">{l}{req && <span className="text-kairos-red"> *</span>}</label>
+      <label htmlFor={n} className="label">{l}{req && <span className="text-accent"> *</span>}</label>
       <input id={n} name={n} defaultValue={v ?? ""} placeholder={ph} required={req} maxLength={max ?? 160} className="input" />
     </div>
   );
