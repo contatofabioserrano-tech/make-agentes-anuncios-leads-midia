@@ -65,7 +65,7 @@ export function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="input"
-          placeholder="voce@fortunacreative.com.br"
+          placeholder="voce@empresa.com.br"
         />
       </div>
 

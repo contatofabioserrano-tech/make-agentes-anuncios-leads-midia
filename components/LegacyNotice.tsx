@@ -6,7 +6,7 @@ export function LegacyNotice({ what }: { what: string }) {
       <h1 className="display text-[26px]">{what} liga quando o banco multiempresa subir</h1>
       <p className="mt-2 text-sm text-muted-fg">
         O código já está pronto. Falta aplicar <code className="font-mono">supabase/migrations/20261103b_multiempresa.sql</code> no Supabase.
-        Até lá o portal funciona como antes, só com a Kairós.
+        Até lá o portal funciona com uma única empresa (MakeOne).
       </p>
     </div>
   );

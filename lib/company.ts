@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 
-/** Empresa do módulo (SaaS multiempresa). kind "odoo" = catálogo vem do Odoo (Kairós); "padrao" = sobe links/fotos/PDFs. */
+/** Empresa do módulo (SaaS multiempresa). kind "padrao" = sobe links/fotos/PDFs (MakeOne); "odoo" = catálogo vem de um Odoo (só com NEXT_PUBLIC_ODOO_ENABLED=1). */
 export interface Company {
   id: string;
   slug: string;
@@ -30,10 +30,10 @@ export const COMPANY_COOKIE = "mk_empresa";
 
 /**
  * Modo de transição: enquanto a migração multiempresa (20261103b) não foi aplicada no banco,
- * o portal funciona como antes, só com a Kairós, sem filtrar por company_id.
+ * o portal funciona com uma única empresa (MakeOne), sem filtrar por company_id.
  */
 export const LEGACY_ID = "00000000-0000-0000-0000-00000000ka1r";
-const LEGACY: Company = { id: LEGACY_ID, slug: "kairos", name: "Grupo Kairós", kind: "odoo", color_primary: "#111111", color_accent: "#E11C24", logo_url: null, site_url: "https://kairos.importefacil.com" };
+const LEGACY: Company = { id: LEGACY_ID, slug: "makeone", name: "MakeOne", kind: "padrao", color_primary: "#111111", color_accent: "#E11C24", logo_url: null, site_url: null };
 
 export const isLegacy = (id: string | null | undefined) => id === LEGACY_ID;
 /** Filtro por empresa para .match(): vazio no modo de transição. */
