@@ -6,7 +6,7 @@ import type { Check } from "@/lib/marketplace/tiktok";
 import { CopyButton } from "../../../CopyButton";
 import { ChannelPreview } from "../../../ChannelPreview";
 
-export const metadata = { title: "Anúncio por canal — Kairós" };
+export const metadata = { title: "Anúncio por canal — MakeOne" };
 
 const SEV: Record<Check["severity"], string> = { erro: "bg-red-50 text-red-700", aviso: "bg-amber-50 text-amber-700", pendencia: "bg-sky-50 text-sky-700" };
 const SEV_L: Record<Check["severity"], string> = { erro: "Regra", aviso: "Aviso", pendencia: "Vendedor" };

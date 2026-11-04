@@ -23,7 +23,7 @@ export default async function FontesPage({ searchParams }: { searchParams: { err
     <div className="mx-auto max-w-[1200px] space-y-6 px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
       <PageHeader overline={`${company.name} · materiais`} title="Enviar materiais"
         subtitle="Suba links da página do produto, fotos e PDFs (catálogo, ficha técnica). O agente lê tudo, monta o cadastro padrão e gera os anúncios." />
-      {searchParams.erro && <p role="alert" className="rounded-xl bg-kairos-red-soft px-4 py-3 text-sm text-kairos-red">{searchParams.erro}</p>}
+      {searchParams.erro && <p role="alert" className="rounded-xl bg-accent-soft px-4 py-3 text-sm text-accent">{searchParams.erro}</p>}
       {searchParams.ok && <p role="status" className="rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-700">Material registrado.</p>}
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -62,7 +62,7 @@ export default async function FontesPage({ searchParams }: { searchParams: { err
                       </td>
                       <td className="text-xs">{STATUS[r.status] ?? r.status}</td>
                       <td className="text-xs text-muted-fg">{fmtDate(r.created_at)}</td>
-                      <td className="text-right"><button formAction={deleteSource} name="id" value={r.id} className="text-xs text-kairos-red">remover</button></td>
+                      <td className="text-right"><button formAction={deleteSource} name="id" value={r.id} className="text-xs text-accent">remover</button></td>
                     </tr>
                   ))}
                 </tbody>

@@ -10,7 +10,7 @@ import { PriceCalculator } from "../PriceCalculator";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "Anúncio TikTok Shop — Kairós" };
+export const metadata = { title: "Anúncio TikTok Shop — MakeOne" };
 
 const SEV_STYLE: Record<Check["severity"], string> = {
   erro: "bg-red-50 text-red-700",
@@ -214,7 +214,7 @@ export default async function AnuncioPage({ params }: { params: { slug: string }
           </Card>
 
           {feed.caption && (
-          <Card title="Pacote para viralizar" right={feed.videoFile ? <a className="font-mono text-[11px] uppercase tracking-[0.1em] text-kairos-red" href={`${baseUrl}/${feed.videoFile}`} download>Baixar vídeo 1080p ↗</a> : undefined}>
+          <Card title="Pacote para viralizar" right={feed.videoFile ? <a className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent" href={`${baseUrl}/${feed.videoFile}`} download>Baixar vídeo 1080p ↗</a> : undefined}>
             <div className="grid gap-5 md:grid-cols-[220px_1fr]">
               {feed.videoFile ? <video src={`${baseUrl}/${feed.videoFile}`} controls playsInline className="w-full rounded-xl bg-black" />
                 : <div className="flex aspect-[9/16] items-center justify-center rounded-xl bg-[#E9E9E3] p-4 text-center text-xs text-muted-fg">Vídeo não solicitado neste job</div>}

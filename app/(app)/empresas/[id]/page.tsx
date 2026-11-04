@@ -28,7 +28,7 @@ export default async function EmpresaPage({ params, searchParams }: { params: { 
   return (
     <div className="mx-auto max-w-[1100px] space-y-6 px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
       <PageHeader overline={c.kind === "odoo" ? "Empresa integrada ao Odoo" : "Empresa · padrão"} title={c.name} subtitle="Ficha no padrão do cadastro de parceiro do Odoo (Importe Fácil)." />
-      {searchParams.erro && <p role="alert" className="rounded-xl bg-kairos-red-soft px-4 py-3 text-sm text-kairos-red">{searchParams.erro}</p>}
+      {searchParams.erro && <p role="alert" className="rounded-xl bg-accent-soft px-4 py-3 text-sm text-accent">{searchParams.erro}</p>}
       {searchParams.ok && <p role="status" className="rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-700">Salvo.</p>}
 
       <form action={updateCompany} className="space-y-6">
@@ -44,13 +44,13 @@ export default async function EmpresaPage({ params, searchParams }: { params: { 
           {(members ?? []).map((m) => (
             <li key={m.user_id} className="flex items-center justify-between gap-3 py-2 text-sm">
               <span>{who(m.user_id)?.name || who(m.user_id)?.email || m.user_id.slice(0, 8)} <span className="text-muted-fg">· {ROLE[m.role]}</span></span>
-              <form action={removeMember}><input type="hidden" name="company_id" value={c.id} /><input type="hidden" name="user_id" value={m.user_id} /><button className="text-xs text-kairos-red">remover</button></form>
+              <form action={removeMember}><input type="hidden" name="company_id" value={c.id} /><input type="hidden" name="user_id" value={m.user_id} /><button className="text-xs text-accent">remover</button></form>
             </li>
           ))}
           {(invites ?? []).map((i) => (
             <li key={i.email} className="flex items-center justify-between gap-3 py-2 text-sm">
               <span>{i.email} <span className="text-muted-fg">· convite pendente ({ROLE[i.role]})</span></span>
-              <form action={removeMember}><input type="hidden" name="company_id" value={c.id} /><input type="hidden" name="email" value={i.email} /><button className="text-xs text-kairos-red">cancelar</button></form>
+              <form action={removeMember}><input type="hidden" name="company_id" value={c.id} /><input type="hidden" name="email" value={i.email} /><button className="text-xs text-accent">cancelar</button></form>
             </li>
           ))}
         </ul>

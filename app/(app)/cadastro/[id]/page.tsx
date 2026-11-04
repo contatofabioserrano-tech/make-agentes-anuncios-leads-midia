@@ -10,7 +10,7 @@ import { deleteDraft } from "../actions";
 import { DraftPhotos } from "../DraftPhotos";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Cadastro — Kairós" };
+export const metadata = { title: "Cadastro — MakeOne" };
 
 export default async function EditCadastro({ params, searchParams }: { params: { id: string }; searchParams: { erro?: string; ok?: string } }) {
   if (!/^[0-9a-f-]{36}$/i.test(params.id)) notFound();
@@ -24,7 +24,7 @@ export default async function EditCadastro({ params, searchParams }: { params: {
     <div className="mx-auto max-w-[1100px] space-y-6 px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
       <PageHeader overline={`Cadastro · ${data.status}`} title={data.name_pt}
         subtitle={data.source_odoo_id ? `Copiado do Odoo #${data.source_odoo_id}` : "Cadastro novo"}>
-        <form action={deleteDraft}><input type="hidden" name="id" value={data.id} /><button className="btn-ghost text-kairos-red" type="submit">Excluir</button></form>
+        <form action={deleteDraft}><input type="hidden" name="id" value={data.id} /><button className="btn-ghost text-accent" type="submit">Excluir</button></form>
       </PageHeader>
       <section className="card p-5 sm:p-6">
         <h2 className="display mb-1 text-[22px]">Gerar anúncios deste produto</h2>

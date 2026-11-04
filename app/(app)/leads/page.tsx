@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { fmtDate } from "@/lib/marketplace/catalog";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Leads — Kairós" };
+export const metadata = { title: "Leads — MakeOne" };
 
 /** Leads das landing pages /loja/[slug]. A RLS só mostra para admin. */
 export default async function LeadsPage() {

@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 import type { Brand } from "@/lib/types";
 import { BrandsManager } from "./BrandsManager";
 
-export const metadata = { title: "Marcas — Fortuna Creative" };
+export const metadata = { title: "Marcas — MakeOne" };
 export const dynamic = "force-dynamic";
 
 export default async function MarcasPage() {

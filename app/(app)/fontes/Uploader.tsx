@@ -45,7 +45,7 @@ export function Uploader({ companyId }: { companyId: string }) {
       onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
       onDragLeave={() => setDrag(false)}
       onDrop={(e) => { e.preventDefault(); setDrag(false); send(e.dataTransfer.files); }}
-      className={`rounded-2xl border-2 border-dashed p-6 text-center transition ${drag ? "border-kairos-red bg-kairos-red-soft" : "border-line bg-white"}`}
+      className={`rounded-2xl border-2 border-dashed p-6 text-center transition ${drag ? "border-accent bg-accent-soft" : "border-line bg-white"}`}
     >
       <p className="text-sm font-semibold text-ink">Arraste fotos e PDFs aqui</p>
       <p className="mt-1 text-xs text-muted-fg">Fotos do produto, catálogo do fabricante, ficha técnica, manual. JPG, PNG, WEBP ou PDF até 50 MB.</p>

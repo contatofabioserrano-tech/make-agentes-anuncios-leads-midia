@@ -4,7 +4,7 @@ import { MachineStatus } from "@/components/MachineStatus";
 import type { Brand } from "@/lib/types";
 import { GeneratorWizard } from "./GeneratorWizard";
 
-export const metadata = { title: "Gerador de Vídeos — Fortuna Creative" };
+export const metadata = { title: "Gerador de Vídeos — MakeOne" };
 export const dynamic = "force-dynamic";
 
 export default async function GeradorPage() {

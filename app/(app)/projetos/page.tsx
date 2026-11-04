@@ -6,7 +6,7 @@ import type { Project, ProjectStatus } from "@/lib/types";
 import { NewProjectDialog } from "./NewProjectDialog";
 import { ProjectBoard } from "./ProjectBoard";
 
-export const metadata = { title: "Projetos — Fortuna Creative" };
+export const metadata = { title: "Projetos — MakeOne" };
 export const dynamic = "force-dynamic";
 
 export default async function ProjetosPage() {

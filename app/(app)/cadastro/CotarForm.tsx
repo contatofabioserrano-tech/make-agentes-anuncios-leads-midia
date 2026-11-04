@@ -17,7 +17,7 @@ export function CotarForm({ id, values, options, sourceOdooId, erro, ok }: {
     <form action={saveDraft} className="space-y-6">
       {id && <input type="hidden" name="id" value={id} />}
       {sourceOdooId ? <input type="hidden" name="source_odoo_id" value={sourceOdooId} /> : null}
-      {erro && <p role="alert" className="rounded-xl bg-kairos-red-soft px-4 py-3 text-sm text-kairos-red">{erro}</p>}
+      {erro && <p role="alert" className="rounded-xl bg-accent-soft px-4 py-3 text-sm text-accent">{erro}</p>}
       {ok && <p role="status" className="rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-700">Salvo no portal (Supabase). O Odoo não foi alterado.</p>}
 
       <div className="card flex flex-wrap items-center justify-between gap-3 p-4">
@@ -27,7 +27,7 @@ export function CotarForm({ id, values, options, sourceOdooId, erro, ok }: {
           {missing.length > 0 && <p className="text-xs text-muted-fg">Falta: {missing.join(", ")}</p>}
         </div>
         <div className="h-2 w-full max-w-xs overflow-hidden rounded-full bg-black/[0.06]">
-          <div className="h-full bg-kairos-red" style={{ width: `${pct}%` }} />
+          <div className="h-full bg-accent" style={{ width: `${pct}%` }} />
         </div>
       </div>
 
@@ -47,7 +47,7 @@ export function CotarForm({ id, values, options, sourceOdooId, erro, ok }: {
               return (
                 <div key={f.key} className={f.type === "textarea" ? "sm:col-span-2" : undefined}>
                   <label htmlFor={f.key} className="label">
-                    {f.label}{f.unit ? ` (${f.unit})` : ""}{f.required && <span className="text-kairos-red"> *</span>}
+                    {f.label}{f.unit ? ` (${f.unit})` : ""}{f.required && <span className="text-accent"> *</span>}
                   </label>
                   {f.type === "textarea" ? <textarea {...common} rows={4} maxLength={5000} />
                     : f.type === "select" ? (

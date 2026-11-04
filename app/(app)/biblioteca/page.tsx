@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 import type { LibraryAsset, Project } from "@/lib/types";
 import { LibraryGallery, type GalleryItem, type PendingItem } from "./LibraryGallery";
 
-export const metadata = { title: "Biblioteca — Fortuna Creative" };
+export const metadata = { title: "Biblioteca — MakeOne" };
 export const dynamic = "force-dynamic";
 
 // Each asset kind lives in a specific bucket.
