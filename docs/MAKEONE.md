@@ -20,3 +20,14 @@ Os dados de produto da Kairós que ficaram aqui (Hyper PETG em `lib/marketplace/
 2. **Marca**: logo, cores e textos da MakeOne no portal (`components/Logo.tsx`, `tailwind.config.ts`, `app/layout.tsx`, `app/login`).
 3. **Integração**: a MakeOne não usa o Odoo da Kairós. Remover/ocultar `scripts/odoo` e o "Catálogo Odoo" ou ligar ao sistema da MakeOne (ex.: CRM `makeone-portal-crm`).
 4. **Leads e mídia**: o nome do repositório inclui leads e mídia: definir funil de leads (landing → `mk_leads` → CRM) e calendário de mídia.
+
+## Feito (04/11/2026, branch `makeone/marca-portal`)
+- Marca MakeOne provisória (tipográfica) no logo, título, login e menus. Cor de destaque centralizada em `accent` (`tailwind.config.ts`): trocar lá quando chegar a paleta oficial; logo oficial vai em `components/Logo.tsx`.
+- "Catálogo Odoo" escondido por padrão (`NEXT_PUBLIC_ODOO_ENABLED=0`); rotas `/catalogo` redirecionam para `/fontes`. Empresas novas só podem ser do tipo "padrão".
+- "Enviar materiais" é o fluxo principal (1º item do menu, botão no painel, links de "gerar novo" apontam para lá).
+- Exemplos do Hyper PETG mantidos até existir o primeiro produto da MakeOne.
+
+## Aguardando o Fábio
+1. Supabase: projeto próprio ou o do Fortuna.
+2. Logo (arquivo), cores e site da MakeOne.
+3. Origem dos produtos (links, fotos, PDFs, CRM `makeone-portal-crm`…).
